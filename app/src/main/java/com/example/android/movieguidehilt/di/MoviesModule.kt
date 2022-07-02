@@ -1,6 +1,9 @@
-package com.example.android.movieguidehilt
+package com.example.android.movieguidehilt.di
 
 
+import com.example.android.movieguidehilt.data.remote.MovieGuideApi
+import com.example.android.movieguidehilt.data.repository.MoviesRepository
+import com.example.android.movieguidehilt.data.repository.MoviesRepositoryImpl
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module

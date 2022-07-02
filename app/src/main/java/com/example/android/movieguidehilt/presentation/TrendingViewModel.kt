@@ -1,9 +1,11 @@
-package com.example.android.movieguidehilt
+package com.example.android.movieguidehilt.presentation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.android.movieguidehilt.data.remote.dto.TrendingMoviesResponse
+import com.example.android.movieguidehilt.data.repository.MoviesRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.lang.Exception
