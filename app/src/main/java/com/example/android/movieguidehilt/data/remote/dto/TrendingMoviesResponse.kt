@@ -1,4 +1,4 @@
-package com.example.android.movieguidehilt
+package com.example.android.movieguidehilt.data.remote.dto
 
 data class TrendingMoviesResponse(
 

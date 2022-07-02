@@ -1,5 +1,6 @@
-package com.example.android.movieguidehilt
+package com.example.android.movieguidehilt.data.remote
 
+import com.example.android.movieguidehilt.data.remote.dto.TrendingMoviesResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

@@ -1,5 +1,7 @@
-package com.example.android.movieguidehilt
+package com.example.android.movieguidehilt.data.repository
 
+import com.example.android.movieguidehilt.data.remote.dto.TrendingMoviesResponse
+import com.example.android.movieguidehilt.data.remote.MovieGuideApi
 import javax.inject.Inject
 
 
