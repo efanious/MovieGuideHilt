@@ -1,29 +1,27 @@
 package com.example.android.movieguidehilt.presentation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.activity.viewModels
+import android.widget.Button
 import com.example.android.movieguidehilt.R
-import dagger.hilt.android.AndroidEntryPoint
+import com.example.android.movieguidehilt.presentation.trending.TrendingActivity
 
-@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
-
-    private val viewModel: TrendingViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel.getTrendingMovies()
-
-        viewModel.response.observe(this) {
-            Toast.makeText(this, "${ it.results?.size}", Toast.LENGTH_SHORT).show()
+        val trendingBtn = findViewById<Button>(R.id.trending_button)
+        trendingBtn.setOnClickListener {
+            val intent = Intent(
+                this,
+                TrendingActivity::class.java
+            )
+            startActivity(intent)
         }
 
-        viewModel.errorResponse.observe(this) {
-            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
-        }
+
     }
 }

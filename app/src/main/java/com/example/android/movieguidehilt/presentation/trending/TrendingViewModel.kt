@@ -1,4 +1,4 @@
-package com.example.android.movieguidehilt.presentation
+package com.example.android.movieguidehilt.presentation.trending
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
