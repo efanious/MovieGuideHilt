@@ -26,17 +26,6 @@ class TrendingViewModel @Inject constructor(private val moviesRepositoryImpl: Mo
     val response: LiveData<Resource<TrendingMoviesResponse>>
         get() = _response
 
-//    private val _response = MutableLiveData<TrendingMoviesResponse>()
-//
-//    val response: LiveData<TrendingMoviesResponse>
-//        get() = _response
-
-
-//    private val _errorResponse = MutableLiveData<String>()
-//
-//    val errorResponse: LiveData<String>
-//        get() = _errorResponse
-
 
     fun getTrendingMovies() {
         viewModelScope.launch {
@@ -50,21 +39,9 @@ class TrendingViewModel @Inject constructor(private val moviesRepositoryImpl: Mo
                     is Resource.Error -> {
                         _response.postValue(result.message?.let { Resource.Error(it) })
                     }
-//                    is Resource.Loading -> {
-//
-//                    }
                 }
 
             }
-//            try {
-//                //_eventNetworkError.value = false
-//                _response.value = moviesRepositoryImpl.getTrendingMovies()
-//
-//            } catch (e: Exception) {
-//                //_eventNetworkError.value = true
-//                _errorResponse.value = e.message
-//
-//            }
         }
     }
 
