@@ -12,6 +12,7 @@ import com.example.android.movieguidehilt.R
 import com.example.android.movieguidehilt.adapters.MoviesAdapter
 import com.example.android.movieguidehilt.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 
 
 @AndroidEntryPoint
@@ -30,7 +31,6 @@ class TrendingActivity : AppCompatActivity() {
         trendingRView.layoutManager =
             GridLayoutManager(this, 2)
         val trendingMoviesAdapter = MoviesAdapter()
-        progressLoading.visibility = View.VISIBLE
 
 
         viewModel.getTrendingMovies()
@@ -52,6 +52,7 @@ class TrendingActivity : AppCompatActivity() {
                 }
                 is Resource.Loading -> {
                     progressLoading.visibility = View.VISIBLE
+
                 }
             }
         }

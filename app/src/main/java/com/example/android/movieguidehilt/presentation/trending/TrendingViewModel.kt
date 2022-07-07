@@ -8,6 +8,7 @@ import com.example.android.movieguidehilt.data.remote.dto.TrendingMoviesResponse
 import com.example.android.movieguidehilt.data.repository.MoviesRepositoryImpl
 import com.example.android.movieguidehilt.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
@@ -38,6 +39,10 @@ class TrendingViewModel @Inject constructor(private val moviesRepositoryImpl: Mo
                     }
                     is Resource.Error -> {
                         _response.postValue(result.message?.let { Resource.Error(it) })
+                    }
+                    is Resource.Loading -> {
+                        _response.postValue(Resource.Loading(null))
+                        //delay(2000)
                     }
                 }
 
