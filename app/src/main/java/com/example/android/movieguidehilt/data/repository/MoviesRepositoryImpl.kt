@@ -1,10 +1,14 @@
 package com.example.android.movieguidehilt.data.repository
 
+import androidx.paging.ExperimentalPagingApi
+import androidx.paging.Pager
+import androidx.paging.PagingConfig
+import androidx.paging.PagingData
+import com.example.android.movieguidehilt.adapters.TopRatedPagingSource
 import com.example.android.movieguidehilt.data.remote.dto.TrendingMoviesResponse
+import com.example.android.movieguidehilt.data.remote.dto.Result
 import com.example.android.movieguidehilt.data.remote.MovieGuideApi
 import com.example.android.movieguidehilt.util.Resource
-import kotlinx.coroutines.Delay
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
@@ -15,7 +19,7 @@ import javax.inject.Inject
 class MoviesRepositoryImpl @Inject constructor(private val movieGuideApi: MovieGuideApi) :
     MoviesRepository {
 
-
+    //MoviesRepository
     override suspend fun getTrendingMovies(): Flow<Resource<TrendingMoviesResponse>> = flow {
         emit(Resource.Loading())
 
@@ -38,10 +42,15 @@ class MoviesRepositoryImpl @Inject constructor(private val movieGuideApi: MovieG
 
     }
 
+    @OptIn(ExperimentalPagingApi::class)
+    override fun getTopRatedTVShowsStream(): Flow<PagingData<Result>> {
+        return  Pager(
+            config = PagingConfig(
+                pageSize = 20,
+                enablePlaceholders = false
+            ),
+            pagingSourceFactory = { TopRatedPagingSource(movieGuideApi) }
+        ).flow
+    }
+
 }
-
-
-//    override suspend fun getTrendingMovies(): TrendingMoviesResponse {
-//        return movieGuideApi.getTrendingMovies()
-//    }
-//
