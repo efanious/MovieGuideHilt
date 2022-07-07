@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.example.android.movieguidehilt.R
+import com.example.android.movieguidehilt.presentation.top_rated.TopRatedActivity
 import com.example.android.movieguidehilt.presentation.trending.TrendingActivity
 
 class MainActivity : AppCompatActivity() {
@@ -18,6 +19,15 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(
                 this,
                 TrendingActivity::class.java
+            )
+            startActivity(intent)
+        }
+
+        val topRatedBtn = findViewById<Button>(R.id.top_rated_button)
+        topRatedBtn.setOnClickListener {
+            val intent = Intent(
+                this,
+                TopRatedActivity::class.java
             )
             startActivity(intent)
         }
