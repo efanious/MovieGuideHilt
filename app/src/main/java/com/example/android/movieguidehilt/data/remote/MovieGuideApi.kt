@@ -1,6 +1,6 @@
 package com.example.android.movieguidehilt.data.remote
 
-import com.example.android.movieguidehilt.data.remote.dto.TrendingMoviesResponse
+import com.example.android.movieguidehilt.data.remote.dto.TrendingMoviesResponseDto
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -16,12 +16,12 @@ interface MovieGuideApi {
         @Path("media_type") mediaType: String = "all",
         @Path("time_window") timeWindow: String = "week",
         @Query("api_key") apiKey: String = "a42804cc4643c432ddbb2090891cb875",
-    ): TrendingMoviesResponse
+    ): TrendingMoviesResponseDto
 
     @GET("/3/tv/top_rated")
     suspend fun getTopRatedTV(
         @Query("api_key") apiKey: String = "a42804cc4643c432ddbb2090891cb875",
         @Query("page") page: Int
-    ): TrendingMoviesResponse
+    ): TrendingMoviesResponseDto
 
 }

@@ -5,9 +5,11 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.example.android.movieguidehilt.adapters.TopRatedPagingSource
-import com.example.android.movieguidehilt.data.remote.dto.TrendingMoviesResponse
-import com.example.android.movieguidehilt.data.remote.dto.Result
+import com.example.android.movieguidehilt.data.remote.dto.TrendingMoviesResponseDto
+import com.example.android.movieguidehilt.data.remote.dto.ResultDto
 import com.example.android.movieguidehilt.data.remote.MovieGuideApi
+import com.example.android.movieguidehilt.domain.model.Result
+import com.example.android.movieguidehilt.domain.model.TrendingMoviesResponse
 import com.example.android.movieguidehilt.util.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -24,7 +26,7 @@ class MoviesRepositoryImpl @Inject constructor(private val movieGuideApi: MovieG
         emit(Resource.Loading())
 
         try {
-            emit(Resource.Success(movieGuideApi.getTrendingMovies()))
+            emit(Resource.Success(movieGuideApi.getTrendingMovies().toTrendingMoviesResponse()))
 
         } catch (e: HttpException) {
             emit(
@@ -44,7 +46,7 @@ class MoviesRepositoryImpl @Inject constructor(private val movieGuideApi: MovieG
 
     @OptIn(ExperimentalPagingApi::class)
     override fun getTopRatedTVShowsStream(): Flow<PagingData<Result>> {
-        return  Pager(
+        return Pager(
             config = PagingConfig(
                 pageSize = 20,
                 enablePlaceholders = false

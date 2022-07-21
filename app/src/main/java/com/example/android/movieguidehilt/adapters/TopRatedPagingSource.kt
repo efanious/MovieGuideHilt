@@ -5,7 +5,8 @@ import androidx.paging.PagingState
 import com.example.android.movieguidehilt.data.remote.MovieGuideApi
 import retrofit2.HttpException
 import java.io.IOException
-import com.example.android.movieguidehilt.data.remote.dto.Result
+import com.example.android.movieguidehilt.data.remote.dto.ResultDto
+import com.example.android.movieguidehilt.domain.model.Result
 
 class TopRatedPagingSource(private val movieGuideApi: MovieGuideApi) : PagingSource<Int, Result>() {
 
@@ -26,7 +27,7 @@ class TopRatedPagingSource(private val movieGuideApi: MovieGuideApi) : PagingSou
             // Suspending network load via Retrofit. This doesn't need to be wrapped in a
             // withContext(Dispatcher.IO) { ... } block since Retrofit's Coroutine
             // CallAdapter dispatches on a worker thread.
-            val response = movieGuideApi.getTopRatedTV( page = pageNumber)
+            val response = movieGuideApi.getTopRatedTV( page = pageNumber).toTrendingMoviesResponse()
 
             // Since 0 is the lowest page number, return null to signify no more pages should
             // be loaded before it.

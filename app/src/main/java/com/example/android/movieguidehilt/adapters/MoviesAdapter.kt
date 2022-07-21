@@ -1,6 +1,5 @@
 package com.example.android.movieguidehilt.adapters
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.android.movieguidehilt.R
-import com.example.android.movieguidehilt.data.remote.dto.Result
+import com.example.android.movieguidehilt.data.remote.dto.ResultDto
+import com.example.android.movieguidehilt.domain.model.Result
 
 
 class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
@@ -57,8 +57,8 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
         fun bind(mMovie: Result) {
             movie = mMovie
 
-            titleText.text = movie!!.original_title ?: movie!!.original_name
-            val fullPosterPath = "https://image.tmdb.org/t/p/w500" + movie!!.poster_path
+            titleText.text = movie!!.originalTitle ?: movie!!.originalName
+            val fullPosterPath = "https://image.tmdb.org/t/p/w500" + movie!!.posterPath
 
             Glide.with(itemView.context)
                 .load(fullPosterPath)
