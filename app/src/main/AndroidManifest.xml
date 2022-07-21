@@ -17,6 +17,9 @@
         android:theme="@style/Theme.MovieGuideHilt"
         tools:targetApi="31">
         <activity
+            android:name=".presentation.movie_detail.MovieDetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".presentation.top_rated.TopRatedActivity"
             android:exported="false" />
         <activity

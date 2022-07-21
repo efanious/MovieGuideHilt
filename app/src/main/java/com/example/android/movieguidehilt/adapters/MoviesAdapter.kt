@@ -1,5 +1,6 @@
 package com.example.android.movieguidehilt.adapters
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.android.movieguidehilt.R
 import com.example.android.movieguidehilt.data.remote.dto.ResultDto
 import com.example.android.movieguidehilt.domain.model.Result
+import com.example.android.movieguidehilt.presentation.movie_detail.MovieDetailActivity
 
 
 class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
@@ -48,9 +50,9 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
 
         private fun onClick(movieClicked: Result) {
 
-//            val intent = Intent(itemView.context, MovieDetailActivity::class.java)
-//            intent.putExtra("Movie", movieClicked)
-//            itemView.context.startActivity(intent)
+            val intent = Intent(itemView.context, MovieDetailActivity::class.java)
+            intent.putExtra("Movie", movieClicked)
+            itemView.context.startActivity(intent)
 
         }
 
