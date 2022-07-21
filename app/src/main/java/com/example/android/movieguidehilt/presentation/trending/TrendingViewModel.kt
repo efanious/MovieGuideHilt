@@ -4,16 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.android.movieguidehilt.data.remote.dto.TrendingMoviesResponse
+import com.example.android.movieguidehilt.data.remote.dto.TrendingMoviesResponseDto
 import com.example.android.movieguidehilt.data.repository.MoviesRepositoryImpl
+import com.example.android.movieguidehilt.domain.model.TrendingMoviesResponse
 import com.example.android.movieguidehilt.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import java.lang.Exception
 import javax.inject.Inject
 
 

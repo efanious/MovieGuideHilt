@@ -8,7 +8,7 @@ import com.example.android.movieguidehilt.data.repository.MoviesRepositoryImpl
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
-import com.example.android.movieguidehilt.data.remote.dto.Result
+import com.example.android.movieguidehilt.domain.model.Result
 
 @HiltViewModel
 class TopRatedViewModel @Inject constructor(private val moviesRepositoryImpl: MoviesRepositoryImpl) :
