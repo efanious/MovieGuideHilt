@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.android.movieguidehilt.R
-import com.example.android.movieguidehilt.data.remote.dto.ResultDto
 import com.example.android.movieguidehilt.domain.model.Result
 import com.example.android.movieguidehilt.presentation.movie_detail.MovieDetailActivity
 
