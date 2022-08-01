@@ -23,11 +23,11 @@ data class Movie (
     val releaseDate: String?,
     val title: String?,
     val video: Boolean?,
-    @ColumnInfo(name = "vote_average")
-    val voteAverage: Double?,
-    @ColumnInfo(name = "vote_count")
-    val voteCount: Int?,
-    val popularity: Double?,
+//    @ColumnInfo(name = "vote_average")
+//    val voteAverage: Double?,
+//    @ColumnInfo(name = "vote_count")
+//    val voteCount: Int?,
+//    val popularity: Double?,
     @ColumnInfo(name = "original_name")
     val originalName: String?,
 )

@@ -5,11 +5,17 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.viewModels
 import com.bumptech.glide.Glide
 import com.example.android.movieguidehilt.domain.model.Result
 import com.example.android.movieguidehilt.R
+import dagger.hilt.android.AndroidEntryPoint
 
+//@AndroidEntryPoint
 class MovieDetailActivity : AppCompatActivity() {
+
+    //private val viewModel: MovieDetailViewModel by viewModels()
 
     private lateinit var movie: Result
 
@@ -33,7 +39,24 @@ class MovieDetailActivity : AppCompatActivity() {
 
         favButton = findViewById(R.id.favourite_button)
 
-        displayInfo(movie)
+//        viewModel.setMovie(movie)
+//        displayInfo(movie)
+//
+//        viewModel.movInDb.observe(this) {
+//            if (it) {
+//                //favButton.text = getString(R.string.remove_as_fav)
+//                favButton.text = "Remove as Favourite"
+//            } else {
+//                favButton.text = "Add as Favourites"
+//            }
+//        }
+//
+//        favButton.setOnClickListener {
+//            viewModel.addOrRemoveAsFav()
+//
+//            Toast.makeText(this, "No of favs: ${viewModel.checkSizeOfMovies()}", Toast.LENGTH_SHORT).show()
+//
+//        }
     }
 
     private fun displayInfo(movie: Result) {
