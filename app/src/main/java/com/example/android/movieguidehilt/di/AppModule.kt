@@ -1,14 +1,20 @@
 package com.example.android.movieguidehilt.di
 
 
+import android.app.Application
+import android.content.Context
+import androidx.room.Room
+import com.example.android.movieguidehilt.data.local.MovieDao
 import com.example.android.movieguidehilt.data.remote.MovieGuideApi
 import com.example.android.movieguidehilt.data.repository.MoviesRepository
 import com.example.android.movieguidehilt.data.repository.MoviesRepositoryImpl
+import com.example.android.movieguidehilt.db.AppDatabase
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -37,6 +43,27 @@ object AppModule {
             .build()
             .create(MovieGuideApi::class.java)
     }
+
+
+    @Provides
+    @Singleton
+    fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
+        return AppDatabase.getInstance(context)
+    }
+//
+//    @ApplicationContext context: Context
+
+    @Provides
+    fun provideUserDao(appDatabase: AppDatabase): MovieDao {
+        return appDatabase.movieDatabaseDao()
+    }
+
+
+//    @Provides
+//    fun dbRepository(db: MovieDao): DbRepositoryImpl {
+//        return DbRepositoryImpl(db)
+//    }
+
 }
 
 
