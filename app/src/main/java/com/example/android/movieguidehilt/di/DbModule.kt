@@ -12,23 +12,22 @@ import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 
-@Module
-@InstallIn(SingletonComponent::class)
-object DbModule {
-
-//    @Provides
-//    @Singleton
-//    fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase =
-//        Room.databaseBuilder(context, AppDatabase::class.java, "netflix_app_database")
-//            .fallbackToDestructiveMigration()
-//            .build()
+//@InstallIn(SingletonComponent::class)
+//@Module
+//object DbModule {
 //
+////    @Provides
+////    @Singleton
+////    fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase =
+////        Room.databaseBuilder(context, AppDatabase::class.java, "netflix_app_database")
+////            .fallbackToDestructiveMigration()
+////            .build()
+////
+////
+////    @Provides
+////    fun provideUserDao(appDatabase: AppDatabase): MovieDao =
+////        appDatabase.movieDatabaseDao()
 //
-//    @Provides
-//    @Singleton
-//    fun provideUserDao(appDatabase: AppDatabase): MovieDao =
-//        appDatabase.movieDatabaseDao()
-
 //    @Provides
 //    @Singleton
 //    fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
@@ -39,9 +38,8 @@ object DbModule {
 //
 //
 //    @Provides
-//    @Singleton
 //    fun provideUserDao(appDatabase: AppDatabase): MovieDao {
 //        return appDatabase.movieDatabaseDao()
 //    }
-
-}
+//
+//}

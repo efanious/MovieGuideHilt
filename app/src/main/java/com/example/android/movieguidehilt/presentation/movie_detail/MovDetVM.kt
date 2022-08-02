@@ -12,15 +12,24 @@ import javax.inject.Inject
 import com.example.android.movieguidehilt.domain.model.Result
 
 
-//@HiltViewModel
-class MovieDetailViewModel @Inject constructor(private val database: MovieDao) : ViewModel() {
+@HiltViewModel
+class MovDetVM @Inject constructor(private val movieDao: MovieDao) :
+    ViewModel() {
+
+    //MovieDetailViewModel
+    var result = 0
+
+    //lateinit var movieDao: MovieDao
+    //    @Inject constructor(private val movieDao: MovieDao)
+    // @Inject constructor(private val dbRepositoryImpl: DbRepositoryImpl)
+//    @Inject constructor(private val database: MovieDao)
 
 
     fun checkSizeOfMovies(): Int {
 
-        var result = 0
+        // test db
         viewModelScope.launch {
-            result = database.getAllFavourites().size
+            result = movieDao.getAllFavourites().size
         }
 
         return result
@@ -36,7 +45,7 @@ class MovieDetailViewModel @Inject constructor(private val database: MovieDao) :
         _movie = movie
 
         viewModelScope.launch {
-            _movInDb.value = _movie?.id?.let { database.exists(it) }
+            _movInDb.value = _movie?.id?.let { movieDao.exists(it) }
         }
     }
 
@@ -44,7 +53,7 @@ class MovieDetailViewModel @Inject constructor(private val database: MovieDao) :
         viewModelScope.launch {
 
             if (movInDb.value == true) {
-                database.deleteMovie(
+                movieDao.deleteMovie(
                     Movie(
                         adult = _movie?.adult,
                         backdropPath = _movie?.backdropPath,
@@ -60,7 +69,7 @@ class MovieDetailViewModel @Inject constructor(private val database: MovieDao) :
                     )
                 )
             } else {
-                database.insert(
+                movieDao.insert(
                     Movie(
                         adult = _movie?.adult,
                         backdropPath = _movie?.backdropPath,
@@ -77,7 +86,7 @@ class MovieDetailViewModel @Inject constructor(private val database: MovieDao) :
                 )
             }
 
-            _movInDb.value = _movie?.id?.let { database.exists(it) }
+            _movInDb.value = _movie?.id?.let { movieDao.exists(it) }
         }
 
     }

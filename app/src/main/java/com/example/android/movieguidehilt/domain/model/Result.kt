@@ -3,6 +3,7 @@ package com.example.android.movieguidehilt.domain.model
 import android.os.Parcel
 import android.os.Parcelable
 
+
 data class Result(
     val adult: Boolean?,
     val backdropPath: String?,
@@ -15,7 +16,7 @@ data class Result(
     val title: String?,
     val video: Boolean?,
     val originalName: String?
-    ) : Parcelable {
+) : Parcelable {
     constructor(parcel: Parcel) : this(
 
         parcel.readValue(Boolean::class.java.classLoader) as? Boolean,

@@ -12,7 +12,6 @@ import com.example.android.movieguidehilt.R
 import com.example.android.movieguidehilt.adapters.MoviesAdapter
 import com.example.android.movieguidehilt.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
 
 
 @AndroidEntryPoint

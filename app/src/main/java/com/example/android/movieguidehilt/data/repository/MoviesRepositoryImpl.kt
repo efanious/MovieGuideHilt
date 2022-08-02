@@ -5,6 +5,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.example.android.movieguidehilt.adapters.TopRatedPagingSource
+import com.example.android.movieguidehilt.data.local.MovieDao
 import com.example.android.movieguidehilt.data.remote.dto.TrendingMoviesResponseDto
 import com.example.android.movieguidehilt.data.remote.dto.ResultDto
 import com.example.android.movieguidehilt.data.remote.MovieGuideApi
@@ -18,8 +19,9 @@ import java.io.IOException
 import javax.inject.Inject
 
 
-class MoviesRepositoryImpl @Inject constructor(private val movieGuideApi: MovieGuideApi) :
-    MoviesRepository {
+class MoviesRepositoryImpl @Inject constructor(
+    private val movieGuideApi: MovieGuideApi
+) : MoviesRepository {
 
     //MoviesRepository
     override suspend fun getTrendingMovies(): Flow<Resource<TrendingMoviesResponse>> = flow {
@@ -54,5 +56,6 @@ class MoviesRepositoryImpl @Inject constructor(private val movieGuideApi: MovieG
             pagingSourceFactory = { TopRatedPagingSource(movieGuideApi) }
         ).flow
     }
+
 
 }
