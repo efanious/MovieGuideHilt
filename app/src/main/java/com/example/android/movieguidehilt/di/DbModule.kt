@@ -12,10 +12,25 @@ import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 
-//@InstallIn(SingletonComponent::class)
-//@Module
-//object DbModule {
+@InstallIn(SingletonComponent::class)
+@Module
+object DbModule {
+
+
+    @Provides
+    @Singleton
+    fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
+        return AppDatabase.getInstance(context)
+    }
 //
+//    @ApplicationContext context: Context
+
+    @Provides
+    fun provideUserDao(appDatabase: AppDatabase): MovieDao {
+        return appDatabase.movieDatabaseDao()
+    }
+
+
 ////    @Provides
 ////    @Singleton
 ////    fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase =
@@ -41,5 +56,5 @@ import javax.inject.Singleton
 //    fun provideUserDao(appDatabase: AppDatabase): MovieDao {
 //        return appDatabase.movieDatabaseDao()
 //    }
-//
-//}
+
+}

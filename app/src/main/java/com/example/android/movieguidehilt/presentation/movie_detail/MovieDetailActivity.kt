@@ -60,8 +60,8 @@ class MovieDetailActivity : AppCompatActivity() {
         favButton.setOnClickListener {
             movDetVM.addOrRemoveAsFav()
 
-            Toast.makeText(this, "No of favs: ${movDetVM.checkSizeOfMovies()}", Toast.LENGTH_SHORT)
-                .show()
+//            Toast.makeText(this, "No of favs: ${movDetVM.checkSizeOfMovies()}", Toast.LENGTH_SHORT)
+//                .show()
 
         }
     }
