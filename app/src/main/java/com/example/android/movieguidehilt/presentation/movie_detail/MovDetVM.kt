@@ -16,24 +16,7 @@ import com.example.android.movieguidehilt.domain.model.Result
 class MovDetVM @Inject constructor(private val movieDao: MovieDao) :
     ViewModel() {
 
-    //MovieDetailViewModel
-   // var result = 0
-
-    //lateinit var movieDao: MovieDao
-    //    @Inject constructor(private val movieDao: MovieDao)
-    // @Inject constructor(private val dbRepositoryImpl: DbRepositoryImpl)
-//    @Inject constructor(private val database: MovieDao)
-
-
-//    fun checkSizeOfMovies(): Int {
-//
-//        // test db
-//        viewModelScope.launch {
-//            result = movieDao.getAllFavourites().size
-//        }
-//
-//        return result
-//    }
+    //MovieDetailViewModel too long for  my windows**** 
 
     private var _movie: Result? = null
 
