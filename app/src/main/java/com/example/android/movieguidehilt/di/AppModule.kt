@@ -44,14 +44,6 @@ object AppModule {
             .create(MovieGuideApi::class.java)
     }
 
-
-
-
-//    @Provides
-//    fun dbRepository(db: MovieDao): DbRepositoryImpl {
-//        return DbRepositoryImpl(db)
-//    }
-
 }
 
 

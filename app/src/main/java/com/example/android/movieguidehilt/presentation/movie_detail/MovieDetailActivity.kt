@@ -43,14 +43,12 @@ class MovieDetailActivity : AppCompatActivity() {
 
         favButton = findViewById(R.id.favourite_button)
 
-        //movieDetailViewModel.movieDao = movieDao
 
         movDetVM.setMovie(movie)
         displayInfo(movie)
 
         movDetVM.movInDb.observe(this) {
             if (it) {
-                //favButton.text = getString(R.string.remove_as_fav)
                 favButton.text = "Remove as Favourite"
             } else {
                 favButton.text = "Add as Favourites"
@@ -59,9 +57,6 @@ class MovieDetailActivity : AppCompatActivity() {
 
         favButton.setOnClickListener {
             movDetVM.addOrRemoveAsFav()
-
-//            Toast.makeText(this, "No of favs: ${movDetVM.checkSizeOfMovies()}", Toast.LENGTH_SHORT)
-//                .show()
 
         }
     }
