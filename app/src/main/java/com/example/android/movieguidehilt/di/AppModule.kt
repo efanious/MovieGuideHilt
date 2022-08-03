@@ -45,18 +45,6 @@ object AppModule {
     }
 
 
-    @Provides
-    @Singleton
-    fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
-        return AppDatabase.getInstance(context)
-    }
-//
-//    @ApplicationContext context: Context
-
-    @Provides
-    fun provideUserDao(appDatabase: AppDatabase): MovieDao {
-        return appDatabase.movieDatabaseDao()
-    }
 
 
 //    @Provides
